@@ -1,0 +1,278 @@
+/* --- Cambia aquí la imagen de fondo --- */
+:root {
+  --bg-url: fondo.jpg; /* sin comillas */
+  --accent: #2f8f3f;
+  --brown: #6b4f3b;
+  --card-bg: rgba(255, 255, 255, 0.94);
+  --glass: rgba(255, 255, 255, 0.72);
+  --max-width: 420px;
+}
+
+/* Reset simple */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+  color: #222;
+}
+
+/* Fondo general */
+body {
+  background-image: 
+    url("fondo.jpg"); /* ← Usamos directamente la ruta de la imagen */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Contenedor principal: usa flex para posicionar a la derecha */
+.wrap {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  height: 80vh;
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.03)
+  );
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Zona izquierda: sólo visual / ilustrativa (puedes dejar en blanco o usar overlay) */
+.left {
+  flex: 1.2;
+  display: none; /* oculta en mobile, visible en desktop */
+  background: linear-gradient(
+    135deg,
+    rgba(47, 143, 63, 0.06),
+    rgba(107, 79, 59, 0.06)
+  );
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  color: white;
+  position: relative;
+}
+.left .brand {
+  text-align: left;
+}
+.left h2 {
+  font-size: 28px;
+  margin-bottom: 8px;
+  color: white;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.4));
+}
+.left p {
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 320px;
+  line-height: 1.4;
+}
+
+/* Zona derecha: caja de login alineada a la derecha */
+.right {
+  flex: 0 0 420px;
+  display: flex;
+  align-items: center; /* centra verticalmente el contenido */
+  justify-content: center;
+  padding: 40px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.85),
+    rgba(255, 255, 255, 0.75)
+  );
+}
+
+.card {
+  width: 100%;
+  max-width: var(--max-width);
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 26px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left; /* contenido justificado a la izquierda dentro del card */
+}
+
+.card header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent), var(--brown));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+.card h1 {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+.card p.lead {
+  font-size: 13px;
+  color: #4b4b4b;
+  line-height: 1.35;
+}
+
+/* Formulario */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 6px;
+}
+label {
+  font-size: 13px;
+  color: #333;
+  margin-bottom: 6px;
+  display: block;
+}
+.input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: white;
+  font-size: 14px;
+}
+.row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+.checkbox {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 13px;
+  color: #444;
+}
+
+.btn {
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  background: linear-gradient(90deg, var(--accent), #3bb24b);
+  color: white;
+  box-shadow: 0 6px 14px rgba(47, 143, 63, 0.18);
+}
+.btn.secondary {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  color: #333;
+  box-shadow: none;
+}
+
+.small {
+  font-size: 12px;
+  color: #666;
+}
+
+.helper {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #666;
+}
+
+/* password toggle */
+.pwd-wrap {
+  position: relative;
+}
+.pwd-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  color: #666;
+  padding: 6px;
+}
+
+/* Footer pequeño */
+.card footer {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #555;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Responsive */
+@media (min-width: 920px) {
+  .left {
+    display: flex;
+  }
+}
+
+@media (max-width: 920px) {
+  .wrap {
+    flex-direction: column;
+    height: auto;
+    background: transparent;
+    box-shadow: none;
+  }
+  .left {
+    display: none;
+  }
+  .right {
+    flex: 1 1 auto;
+    padding: 20px;
+    background: transparent;
+  }
+  .card {
+    margin: 10px auto;
+    width: 100%;
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 420px) {
+  .card {
+    padding: 18px;
+    border-radius: 10px;
+  }
+  .logo {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+  .card h1 {
+    font-size: 18px;
+  }
+}
+
+/* Pequeños toques visuales para justificar contenido */
+.justify {
+  text-align: justify;
+}

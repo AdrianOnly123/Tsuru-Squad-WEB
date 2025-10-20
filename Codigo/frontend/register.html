@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="left">
+        <div class="brand">
+          <h2>Bienvenido</h2>
+          <p>Únete a nuestra comunidad y empieza a explorar.</p>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="card">
+          <header>
+            <div class="logo">R</div>
+            <div>
+              <h1>Crear cuenta</h1>
+              <p class="lead">Completa los campos para registrarte</p>
+            </div>
+          </header>
+
+          <form id="registerForm">
+            <div>
+              <label for="name">Nombre completo</label>
+              <input type="text" id="name" class="input" required />
+            </div>
+
+            <div>
+              <label for="email">Correo electrónico</label>
+              <input type="email" id="email" class="input" required />
+            </div>
+
+            <div class="pwd-wrap">
+              <label for="password">Contraseña</label>
+              <input type="password" id="password" class="input" required />
+              <button
+                class="pwd-toggle"
+                type="button"
+                onclick="togglePassword()"
+              >
+                👁️
+              </button>
+            </div>
+            <div>
+              <label for="role">Tipo de usuario</label>
+              <select id="role" class="input" required>
+                <option value="farmer">Agricultor</option>
+                <option value="buyer">Comprador</option>
+                <option value="scientist">Científico</option>
+              </select>
+            </div>
+
+            <div class="row">
+              <div class="checkbox">
+                <input type="checkbox" id="terms" required />
+                <label for="terms">Acepto los términos</label>
+              </div>
+            </div>
+
+            <button type="submit" class="btn">Registrarme</button>
+          </form>
+
+          <div class="helper" style="margin-top: 6px">
+            <span class="small">¿Ya tienes cuenta?</span>
+            <a class="small" href="./login.html">Inicia sesión</a>
+          </div>
+
+          <footer>
+            <span>© 2025</span>
+            <span>Tu Marca</span>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/register.js"></script>
+    <script>
+      function togglePassword() {
+        const pwd = document.getElementById("password");
+        pwd.type = pwd.type === "password" ? "text" : "password";
+      }
+
+    </script>
+  </body>
+</html>

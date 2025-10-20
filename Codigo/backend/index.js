@@ -1,0 +1,30 @@
+const express = require('express');
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+const authRoutes = require('./routes/auth');
+const cors = require('cors');
+const app = express();
+dotenv.config();
+
+
+const PORT = process.env.PORT || 3000;
+app.use(cors({
+  origin: "http://127.0.0.1:5500",
+  credentials: true
+}));
+app.use(express.json());
+app.use('/api/auth', authRoutes);
+
+
+
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('✅ Conectado a MongoDB Atlas'))
+  .catch(err => console.error('❌ Error al conectar a MongoDB:', err));
+
+app.get('/', (req, res) => {
+  res.send('Servidor funcionando 🚀');
+});
+
+app.listen(PORT, () => {
+  console.log(`🟢 Servidor corriendo en http://localhost:${PORT}`);
+});
