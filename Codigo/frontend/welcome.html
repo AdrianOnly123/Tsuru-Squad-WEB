@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bienvenido</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-left">
+      <span class="brand">🌱 Productividad Visual</span>
+    </div>
+    <div class="nav-right">
+      <div class="dropdown">
+        <button class="dropbtn">👤 Perfil</button>
+        <div class="dropdown-content">
+          <p id="navUserName">Nombre: —</p>
+          <p id="navUserRole">Rol: —</p>
+          <button id="logoutNav">Cerrar sesión</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>¡Hola, <span id="userName"></span>!</h1>
+    <p id="roleMessage"></p>
+
+    <div class="actions">
+      <button id="goToDashboard">Ir al Dashboard</button>
+    </div>
+  </div>
+
+  <div class="tool-section">
+    <h2>Herramientas disponibles</h2>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <img src="./img/humedad.png" alt="Monitoreo de humedad" />
+        <p>Monitoreo de humedad</p>
+      </div>
+      <div class="tool-card">
+        <img src="./img/biofertilizante.png" alt="Biofertilizantes" />
+        <p>Biofertilizantes</p>
+      </div>
+      <div class="tool-card">
+        <img src="./img/semillas.png" alt="Semillas resilientes" />
+        <p>Semillas resilientes</p>
+      </div>
+      <div class="tool-card">
+        <img src="./img/usuarios.png" alt="Administrador de usuarios" />
+        <p>Gestión de usuarios</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/welcome.js"></script>
+</body>
+</html>

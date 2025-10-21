@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Ejidatario</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- 🔝 Navbar universal -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <span class="brand">🌱 App Dose — Ejidatario</span>
+    </div>
+    <div class="nav-right">
+      <div class="dropdown">
+        <button class="dropbtn">👤 Perfil</button>
+        <div class="dropdown-content">
+          <p id="navUserName">Nombre: —</p>
+          <p id="navUserRole">Rol: —</p>
+          <button id="logoutNav">Cerrar sesión</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 📦 Contenido principal -->
+  <div class="container">
+    <h1>Bienvenido, <span id="userName"></span></h1>
+    <p>Este es tu panel de control para gestionar tu parcela, pedidos y recomendaciones.</p>
+
+    <!-- 🌱 Estado de la parcela -->
+    <section class="tool-section">
+      <h2>Estado actual de tu parcela</h2>
+      <div class="tool-grid">
+        <div class="tool-card">
+          <img src="./img/humedad.png" alt="Humedad" />
+          <p>Humedad: <span id="humidityValue">—%</span></p>
+        </div>
+        <div class="tool-card">
+          <img src="./img/fertilizacion.png" alt="Fertilización" />
+          <p>Última fertilización: <span id="fertilizationDate">—</span></p>
+        </div>
+        <div class="tool-card">
+          <img src="./img/estado.png" alt="Estado general" />
+          <p>Estado general: <span id="statusValue">—</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🧠 Recomendaciones -->
+    <section class="tool-section">
+      <h2>Recomendaciones para mejorar tu cultivo</h2>
+      <div class="tool-grid">
+        <div class="tool-card">
+          <img src="./img/recomendacion.png" alt="Recomendación" />
+          <p id="recommendationText">—</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 📊 Historial -->
+    <section class="tool-section">
+      <h2>Historial de intervenciones</h2>
+      <ul id="historyList">
+        <!-- Se llenará dinámicamente -->
+      </ul>
+    </section>
+  </div>
+
+  <script src="./js/dashboard-farmer.js"></script>
+</body>
+</html>

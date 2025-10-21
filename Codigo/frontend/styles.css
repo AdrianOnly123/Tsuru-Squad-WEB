@@ -1,6 +1,9 @@
-/* --- Cambia aquí la imagen de fondo --- */
+/* Inicio styles.css */
+/* ============================= */
+/* 🎨 VARIABLES Y RESET UNIVERSAL */
+/* ============================= */
 :root {
-  --bg-url: fondo.jpg; /* sin comillas */
+  --bg-url: fondo.jpg;
   --accent: #2f8f3f;
   --brown: #6b4f3b;
   --card-bg: rgba(255, 255, 255, 0.94);
@@ -8,271 +11,196 @@
   --max-width: 420px;
 }
 
-/* Reset simple */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-html,
-body {
-  height: 100%;
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial;
-  color: #222;
-}
 
-/* Fondo general */
-body {
-  background-image: 
-    url("fondo.jpg"); /* ← Usamos directamente la ruta de la imagen */
+html, body {
+  height: 100%;
+  font-family: Inter, "Segoe UI", system-ui, Roboto, Arial;
+  color: #222;
+  background-image: url("fondo.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-
-/* Contenedor principal: usa flex para posicionar a la derecha */
-.wrap {
+/* ============================= */
+/* 🔝 NAVBAR UNIVERSAL */
+/* ============================= */
+.navbar {
   display: flex;
-  width: 100%;
-  max-width: 1200px;
-  height: 80vh;
-  border-radius: 14px;
-  overflow: hidden;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.06),
-    rgba(255, 255, 255, 0.03)
-  );
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
-}
-
-/* Zona izquierda: sólo visual / ilustrativa (puedes dejar en blanco o usar overlay) */
-.left {
-  flex: 1.2;
-  display: none; /* oculta en mobile, visible en desktop */
-  background: linear-gradient(
-    135deg,
-    rgba(47, 143, 63, 0.06),
-    rgba(107, 79, 59, 0.06)
-  );
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  padding: 40px;
+  background-color: var(--accent);
+  padding: 10px 20px;
   color: white;
+}
+
+.brand {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.nav-right {
   position: relative;
 }
-.left .brand {
-  text-align: left;
+
+.dropdown {
+  position: relative;
+  display: inline-block;
 }
-.left h2 {
-  font-size: 28px;
-  margin-bottom: 8px;
+
+.dropbtn {
+  background-color: var(--accent);
   color: white;
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.4));
-}
-.left p {
-  color: rgba(255, 255, 255, 0.9);
-  max-width: 320px;
-  line-height: 1.4;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
-/* Zona derecha: caja de login alineada a la derecha */
-.right {
-  flex: 0 0 420px;
-  display: flex;
-  align-items: center; /* centra verticalmente el contenido */
-  justify-content: center;
-  padding: 40px;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.85),
-    rgba(255, 255, 255, 0.75)
-  );
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: white;
+  color: black;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  padding: 10px;
+  z-index: 1;
+  border-radius: 4px;
 }
 
-.card {
-  width: 100%;
-  max-width: var(--max-width);
-  background: var(--card-bg);
-  border-radius: 12px;
-  padding: 26px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  text-align: left; /* contenido justificado a la izquierda dentro del card */
+.dropdown-content p {
+  margin: 5px 0;
 }
 
-.card header {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-.logo {
-  width: 48px;
-  height: 48px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, var(--accent), var(--brown));
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.dropdown-content button {
+  background-color: #f44336;
   color: white;
-  font-weight: bold;
-  font-size: 18px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-}
-.card h1 {
-  font-size: 20px;
-  margin-bottom: 4px;
-}
-.card p.lead {
-  font-size: 13px;
-  color: #4b4b4b;
-  line-height: 1.35;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
-/* Formulario */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 6px;
-}
-label {
-  font-size: 13px;
-  color: #333;
-  margin-bottom: 6px;
+.dropdown:hover .dropdown-content {
   display: block;
 }
-.input {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 8px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  background: white;
-  font-size: 14px;
+
+/* ============================= */
+/* 📦 CONTENEDORES Y LAYOUT GENERAL */
+/* ============================= */
+.container {
+  max-width: 800px;
+  margin: 80px auto 40px;
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  text-align: center;
 }
-.row {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: space-between;
+
+.container h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
 }
-.checkbox {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  font-size: 13px;
+
+.container p {
+  font-size: 16px;
+  margin-bottom: 20px;
   color: #444;
 }
 
-.btn {
-  padding: 12px 14px;
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* ============================= */
+/* 🧩 COMPONENTES REUTILIZABLES */
+/* ============================= */
+button {
+  padding: 12px 20px;
+  font-size: 15px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  font-weight: 600;
-  font-size: 15px;
   background: linear-gradient(90deg, var(--accent), #3bb24b);
   color: white;
   box-shadow: 0 6px 14px rgba(47, 143, 63, 0.18);
 }
-.btn.secondary {
+
+button.secondary {
   background: transparent;
   border: 1px solid rgba(0, 0, 0, 0.06);
   color: #333;
   box-shadow: none;
 }
 
-.small {
-  font-size: 12px;
-  color: #666;
+input, select, textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: white;
+  font-size: 14px;
+  margin-bottom: 12px;
 }
 
-.helper {
+/* ============================= */
+/* 🧰 SECCIÓN DE HERRAMIENTAS VISUALES */
+/* ============================= */
+.tool-section {
+  padding: 20px;
+}
+
+.tool-section h2 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.tool-grid {
   display: flex;
-  justify-content: space-between;
-  font-size: 13px;
-  color: #666;
-}
-
-/* password toggle */
-.pwd-wrap {
-  position: relative;
-}
-.pwd-toggle {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 13px;
-  color: #666;
-  padding: 6px;
-}
-
-/* Footer pequeño */
-.card footer {
-  margin-top: 6px;
-  font-size: 13px;
-  color: #555;
-  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 8px;
 }
 
-/* Responsive */
-@media (min-width: 920px) {
-  .left {
-    display: flex;
-  }
+.tool-card {
+  width: 150px;
+  text-align: center;
 }
 
+.tool-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.tool-card p {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* ============================= */
+/* 📱 RESPONSIVE DESIGN */
+/* ============================= */
 @media (max-width: 920px) {
-  .wrap {
+  .container {
+    margin: 40px 20px;
+  }
+
+  .tool-grid {
     flex-direction: column;
-    height: auto;
-    background: transparent;
-    box-shadow: none;
-  }
-  .left {
-    display: none;
-  }
-  .right {
-    flex: 1 1 auto;
-    padding: 20px;
-    background: transparent;
-  }
-  .card {
-    margin: 10px auto;
-    width: 100%;
-    max-width: 520px;
+    align-items: center;
   }
 }
-
-@media (max-width: 420px) {
-  .card {
-    padding: 18px;
-    border-radius: 10px;
-  }
-  .logo {
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
-  }
-  .card h1 {
-    font-size: 18px;
-  }
-}
-
-/* Pequeños toques visuales para justificar contenido */
-.justify {
-  text-align: justify;
-}
+/* Fin de styles.css */

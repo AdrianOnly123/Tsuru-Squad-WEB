@@ -1,109 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Dose — Inicio de sesión</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="wrap" role="main">
-      <aside class="left" aria-hidden="true">
-        <div class="brand">
-          <h2>App Dose — para ejidatarios</h2>
-          <p class="justify">
-            Conecta con negocios locales, recibe asesoría de embajadores y
-            gestiona ventas directas desde tu parcela. Interfaz simple y
-            diseñada para campo.
-          </p>
-        </div>
-      </aside>
-
-      <section class="right" aria-label="Inicio de sesión">
-        <div class="card" role="form" aria-labelledby="loginTitle">
-          <header>
-            <div class="logo" aria-hidden="true">D</div>
-            <div>
-              <h1 id="loginTitle">Iniciar sesión — Dose</h1>
-              <p class="lead">
-                Accede a tu cuenta para gestionar pedidos, recibir
-                acompañamiento y ofertas locales.
-              </p>
-            </div>
-          </header>
-
-          <form id="loginForm" novalidate>
-            <div>
-              <label for="email">Correo electrónico</label>
-              <input
-                id="email"
-                class="input"
-                type="email"
-                placeholder="tucorreo@ejemplo.com"
-                required
-                autocomplete="username"
-              />
-            </div>
-
-            <div>
-              <label for="password">Contraseña</label>
-              <div class="pwd-wrap">
-                <input
-                  id="password"
-                  class="input"
-                  type="password"
-                  placeholder="********"
-                  required
-                  autocomplete="current-password"
-                />
-                <button
-                  type="button"
-                  class="pwd-toggle"
-                  aria-label="Mostrar contraseña"
-                  onclick="togglePassword()"
-                >
-                  Mostrar
-                </button>
-              </div>
-            </div>
-
-            <div class="row">
-              <label class="checkbox"
-                ><input type="checkbox" id="remember" />
-                <span>Recordarme</span></label
-              >
-              <a class="small" href="#" onclick="forgot(event)"
-                >¿Olvidaste tu contraseña?</a
-              >
-            </div>
-
-            <button class="btn" type="submit">Entrar</button>
-
-            <div class="helper" style="margin-top: 6px">
-              <span class="small">¿Sin cuenta?</span>
-              <a class="small" href="./register.html">Crear cuenta</a>
-            </div>
-            <div
-              style="
-                height: 1px;
-                background: rgba(0, 0, 0, 0.04);
-                margin: 10px 0;
-                border-radius: 2px;
-              "
-            ></div>
-
-            <button type="button" class="btn secondary" onclick="demoLogin()">
-              Iniciar con cuenta demo
-            </button>
-
-            <footer>
-              <span class="small">¿Necesitas ayuda?</span>
-              <a class="small" href="#" onclick="support(event)">Soporte</a>
-            </footer>
-          </form>
-        </div>
-      </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iniciar sesión — Dose</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-left">
+      <span class="brand">🌱 App Dose — para ejidatarios</span>
     </div>
-  </body>
+  </nav>
+
+  <div class="container">
+    <h1>Iniciar sesión</h1>
+    <p>Accede a tu cuenta para gestionar pedidos, recibir acompañamiento y conectar con clientes locales.</p>
+
+    <form id="loginForm">
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" class="input" required />
+
+      <label for="password">Contraseña</label>
+      <div class="pwd-wrap">
+        <input type="password" id="password" class="input" required />
+        <button type="button" class="pwd-toggle" onclick="togglePassword()">Mostrar</button>
+      </div>
+
+      <button type="submit" class="btn">Entrar</button>
+    </form>
+  </div>
+
   <script src="./js/login.js"></script>
+</body>
 </html>

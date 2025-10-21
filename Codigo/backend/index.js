@@ -4,6 +4,10 @@ const dotenv = require('dotenv');
 const authRoutes = require('./routes/auth');
 const cors = require('cors');
 const app = express();
+const userRoutes = require("./routes/users");
+const projectRoutes = require("./routes/projects");
+
+
 dotenv.config();
 
 
@@ -14,6 +18,8 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use('/api/auth', authRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/projects", projectRoutes);
 
 
 

@@ -38,9 +38,12 @@ document
 
       if (response.ok) {
         alert("✅ Bienvenido, " + data.user.name);
-        // Puedes guardar el usuario en localStorage si lo necesitas:
-        // localStorage.setItem("user", JSON.stringify(data.user));
-        // window.location.href = "/dashboard.html";
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("user", JSON.stringify(data.user));
+
+        window.location.href = "./welcome.html";
+
+
       } else {
         alert("❌ " + data.message);
       }
@@ -50,11 +53,6 @@ document
     }
   });
 
-function demoLogin() {
-  document.getElementById("email").value = "demo@dose.app";
-  document.getElementById("password").value = "demopassword";
-  alert("Cuenta demo cargada. Presiona Entrar para iniciar sesión.");
-}
 
 function forgot(e) {
   e.preventDefault();
@@ -71,6 +69,3 @@ function support(e) {
   alert("Contacto de soporte (pendiente).");
 }
 
-localStorage.setItem("token", data.token);
-localStorage.setItem("user", JSON.stringify(data.user));
-window.location.href = "./dashboard.html";
