@@ -34,3 +34,14 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`🟢 Servidor corriendo en http://localhost:${PORT}`);
 });
+
+// Manejo de errores
+
+app.use((req, res) => {
+  res.status(404).json({ message: "Ruta no encontrada" });
+});
+
+app.use((err, req, res, next) => {
+  console.error("❌ Error interno:", err);
+  res.status(500).json({ message: "Error interno del servidor" });
+});

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle del Proyecto</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- 🔝 Navbar universal mejorada -->
+    <nav class="navbar">
+      <div class="nav-left">
+        <a href="./dashboard-farmer.html" class="brand">🌱 Chinampa</a>
+      </div>
+      <div class="nav-right">
+        <div class="dropdown">
+          <button class="dropbtn">👤 Perfil ▾</button>
+          <div class="dropdown-content">
+            <a href="./dashboard-farmer.html">🏠 Dashboard</a>
+            <a href="./perfil.html">🧾 Mi Perfil</a>
+            <p id="navUserName">Nombre: —</p>
+            <p id="navUserRole">Rol: —</p>
+            <button id="logoutNav">🚪 Cerrar sesión</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container py-4">
+      <h2 class="mb-4">🌾 Detalles del Proyecto</h2>
+
+      <div id="detalleProyecto" class="card shadow-sm p-4">
+        <h4 id="cropName"></h4>
+        <p><strong>Ubicación:</strong> <span id="locationText"></span></p>
+        <p><strong>Estado:</strong> <span id="statusText"></span></p>
+        <p>
+          <strong>Fecha de siembra:</strong> <span id="sowingDateText"></span>
+        </p>
+        <p><strong>Humedad:</strong> <span id="humidityText"></span></p>
+        <p><strong>Fertilizante:</strong> <span id="fertilizerText"></span></p>
+        <p>
+          <strong>Observaciones:</strong> <span id="observationsText"></span>
+        </p>
+        <p>
+          <strong>Recomendaciones:</strong>
+          <span id="recommendationsText"></span>
+        </p>
+
+        <h5 class="mt-4">📜 Historial de acciones</h5>
+        <ul id="historyList" class="list-unstyled"></ul>
+      </div>
+
+      <div
+        id="mensajeError"
+        class="text-danger mt-4"
+        style="display: none"
+      ></div>
+    </div>
+
+    <script src="/js/detalle-proyecto.js"></script>
+  </body>
+</html>

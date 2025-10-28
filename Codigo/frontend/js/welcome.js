@@ -1,20 +1,15 @@
-//NAVBAR
 const user = JSON.parse(localStorage.getItem("user"));
-if (user) {
-  document.getElementById("navUserName").textContent = `Nombre: ${user.name}`;
-  document.getElementById("navUserRole").textContent = `Rol: ${user.role}`;
-}
-
-document.getElementById("logoutNav").onclick = () => {
-  localStorage.clear();
-  window.location.href = "./index.html";
-};
-//FIN NAVBAR
+const token = localStorage.getItem("token");
 
 document.addEventListener("DOMContentLoaded", () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const token = localStorage.getItem("token");
 
+  if (!token) {
+    alert("⚠️ No has iniciado sesión.");
+    window.location.href = "./index.html";
+    return;
+  }
   fetch("http://localhost:3000/api/users/me", {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -44,14 +39,20 @@ document.addEventListener("DOMContentLoaded", () => {
     roleMessage.textContent =
       "Como científico, tendrás acceso a estudios, muestreo de datos y herramientas para mejorar biofertilizantes y semillas resilientes.";
     dashboardBtn.onclick = () =>
-      (window.location.href = "./dashboard-scientist.html");
+      (window.location.href = "/dashboard-scienist.html");
   } else {
     roleMessage.textContent = "Rol no reconocido. Contacta al administrador.";
     dashboardBtn.disabled = true;
   }
 
-  document.getElementById("logout").onclick = () => {
-    localStorage.clear();
-    window.location.href = "./login.html";
-  };
 });
+
+// Actualizar barra de navegación
+
+document.getElementById("navUserName").textContent = `Nombre: ${user.name}`;
+document.getElementById("navUserRole").textContent = `Rol: ${user.role}`;
+
+document.getElementById("logoutNav").onclick = () => {
+  localStorage.clear();
+  window.location.href = "./index.html";
+};

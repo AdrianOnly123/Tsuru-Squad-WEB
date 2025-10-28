@@ -1,4 +1,5 @@
 // Mostrar / ocultar contraseña
+
 function togglePassword() {
   const pwd = document.getElementById("password");
   const btn = document.querySelector(".pwd-toggle");
@@ -27,32 +28,36 @@ document
       return;
     }
 
-    try {
-      const response = await fetch("http://localhost:3000/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
+    fetch("http://localhost:3000/api/auth/login", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({ email, password })
+})
+  .then(async (response) => {
+    const data = await response.json();
+    console.log("Respuesta del login:", data);
 
-      const data = await response.json();
-
-      if (response.ok) {
-        alert("✅ Bienvenido, " + data.user.name);
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("user", JSON.stringify(data.user));
-
-        window.location.href = "./welcome.html";
-
-
-      } else {
-        alert("❌ " + data.message);
-      }
-    } catch (error) {
-      alert("⚠️ Error al conectar con el servidor.");
-      console.error(error);
+    if (response.ok) {
+      alert("✅ Bienvenido, " + data.user.name);
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+      window.location.href = "./welcome.html";
+    } else {
+      alert("❌ " + (data.message || "Error al iniciar sesión"));
     }
+  })
+  .catch((error) => {
+    alert("⚠️ Error al conectar con el servidor.");
+    console.error("Error en login:", error);
   });
-
+});
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js')
+    .then(reg => console.log('✅ Service Worker registrado:', reg.scope))
+    .catch(err => console.error('❌ Error al registrar SW:', err));
+}
 
 function forgot(e) {
   e.preventDefault();

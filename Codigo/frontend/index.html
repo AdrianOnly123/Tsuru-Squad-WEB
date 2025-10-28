@@ -1,36 +1,142 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Iniciar sesión — Dose</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <nav class="navbar">
-    <div class="nav-left">
-      <span class="brand">🌱 App Dose — para ejidatarios</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar sesión — Dose</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="manifest" href="/public/manifest.json">
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="bg-gradient-to-br from-green-50 to-green-100 text-green-900 font-sans"
+  >
+    <header
+      class="text-center py-12 bg-cover bg-center"
+      style="background-image: url('/frontend/public/img/fondo.jpg')"
+    >
+      <h1 class="text-5xl font-bold text-white drop-shadow">🌿 Chinampa</h1>
+      <p class="text-xl mt-2 text-white drop-shadow">
+        La plataforma digital para la agricultura sostenible
+      </p>
+    </header>
+
+    <nav class="flex justify-end p-4 align-center space-x-4">
+      <a
+        href="#login-section"
+        class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
+      >
+        Iniciar sesión
+      </a>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 space-y-16">
+      <section class="grid md:grid-cols-2 gap-8 items-center">
+        <img
+          src="/public/img/semillas.png"
+          alt="Semillas adaptadas"
+          class="rounded shadow"
+        />
+        <div>
+          <h2 class="text-2xl font-semibold mb-4">¿Qué es Chinampa?</h2>
+          <p class="text-lg leading-relaxed">
+            Chinampa conecta investigadores, productores y agricultores mediante
+            tecnología de vanguardia. Su arquitectura modular y escalable
+            permite gestionar datos agrícolas en tiempo real y tomar decisiones
+            estratégicas basadas en evidencia.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4 border-b border-green-300 pb-2">
+          Impacto ambiental y agrícola
+        </h2>
+        <ul class="space-y-2 list-disc list-inside text-lg">
+          <li>
+            🌱 Reducción de fertilizantes químicos mediante biofertilizantes
+          </li>
+          <li>
+            💧 Ahorro de agua con riego inteligente basado en sensores IoT
+          </li>
+          <li>🌾 Semillas resistentes adaptadas al cambio climático</li>
+          <li>🌍 Conservación de la biodiversidad microbiana y del suelo</li>
+          <li>♻️ Menor huella de carbono por optimización de recursos</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4 border-b border-green-300 pb-2">
+          Innovación tecnológica
+        </h2>
+        <p class="text-lg leading-relaxed mb-4">
+          Chinampa integra IoT para monitorear cultivos en tiempo real y
+          automatizar procesos como el riego. Con Big Data y analítica agrícola,
+          genera reportes que permiten:
+        </p>
+        <ul class="space-y-2 list-disc list-inside text-lg">
+          <li>📊 Comparar rendimiento de semillas en distintos climas</li>
+          <li>📈 Predecir riesgos y optimizar la producción</li>
+          <li>📱 Acceso multiplataforma desde computadoras y móviles</li>
+          <li>🔔 Alertas inteligentes para actuar en el momento adecuado</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4 border-b border-green-300 pb-2">
+          Stack tecnológico
+        </h2>
+        <ul class="space-y-2 list-disc list-inside text-lg">
+          <li>
+            🧩 Frontend interactivo con HTML, CSS, JavaScript y Service Worker
+          </li>
+          <li>⚙️ Backend escalable con Node.js, Express y MongoDB</li>
+          <li>🔐 Seguridad robusta con autenticación modular</li>
+          <li>🚀 Despliegue ágil y multiplataforma</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4 border-b border-green-300 pb-2">
+          Únete a Chinampa
+        </h2>
+        <p class="text-lg leading-relaxed">
+          Forma parte de la revolución agrícola sostenible con Chinampa. Ya
+          seas investigador, productor o agricultor, nuestra plataforma te
+          ofrece las herramientas para optimizar tu trabajo y contribuir a un
+          futuro más verde.
+        </p>
+      </section>
+    </main>
+
+    <div class="container">
+      <h1>Iniciar sesión</h1>
+      <p>
+        Accede a tu cuenta para gestionar pedidos, recibir acompañamiento y
+        conectar con clientes locales.
+      </p>
+
+      <form id="loginForm">
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" class="input" required />
+
+        <label for="password">Contraseña</label>
+        <div class="pwd-wrap">
+          <input type="password" id="password" class="input" required />
+          <button type="button" class="pwd-toggle" onclick="togglePassword()">
+            Mostrar
+          </button>
+        </div>
+        <p>¿No tienes cuenta?</p>
+        <button id="btnRegistro" class="btn btn-outline-secondary">
+          Crear cuenta
+        </button>
+        <button type="submit" class="btn">Entrar</button>
+      </form>
     </div>
-  </nav>
-
-  <div class="container">
-    <h1>Iniciar sesión</h1>
-    <p>Accede a tu cuenta para gestionar pedidos, recibir acompañamiento y conectar con clientes locales.</p>
-
-    <form id="loginForm">
-      <label for="email">Correo electrónico</label>
-      <input type="email" id="email" class="input" required />
-
-      <label for="password">Contraseña</label>
-      <div class="pwd-wrap">
-        <input type="password" id="password" class="input" required />
-        <button type="button" class="pwd-toggle" onclick="togglePassword()">Mostrar</button>
-      </div>
-
-      <button type="submit" class="btn">Entrar</button>
-    </form>
-  </div>
-
-  <script src="./js/login.js"></script>
-</body>
+    <footer class="text-center mt-16 text-sm text-green-700">
+      © 2025 Chinampa. Cultivando ciencia, sembrando decisiones.
+    </footer>
+    <script src="./js/login.js"></script>
+  </body>
 </html>

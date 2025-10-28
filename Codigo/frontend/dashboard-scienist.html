@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tablero Cientificos</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-left">
+        <a href="./dashboard-farmer.html" class="brand">🌱 Chinampa</a>
+      </div>
+      <div class="nav-right">
+        <div class="dropdown">
+          <button class="dropbtn">👤 Perfil ▾</button>
+          <div class="dropdown-content">
+            <a href="./dashboard-farmer.html">🏠 Dashboard</a>
+            <a href="./perfil.html">🧾 Mi Perfil</a>
+            <p id="navUserName">Nombre: —</p>
+            <p id="navUserRole">Rol: —</p>
+            <button id="logoutNav">🚪 Cerrar sesión</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main class="container">
+      <h1>Panel de análisis científico</h1>
+
+      <section id="projectSummary">
+        <h2>Resumen de proyectos</h2>
+        <div id="projectCards" class="card-grid"></div>
+      </section>
+
+      <section id="rankingSection">
+        <h2>Ranking de agricultores</h2>
+        <canvas id="rankingChart"></canvas>
+      </section>
+
+      <section id="insightsSection">
+        <h2>Comparativa de biofertilizantes</h2>
+        <canvas id="biofertilizerChart"></canvas>
+      </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/dashboard-scientist.js"></script>
+  </body>
+</html>
