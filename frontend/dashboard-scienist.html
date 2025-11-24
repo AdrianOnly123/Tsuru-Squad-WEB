@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Científico — Chinampa</title>
+    <link rel="stylesheet" href="public/styles/pages/dashboard-scientist.css" />
+  </head>
+
+  <body class="eco-veins welcome-body">
+    <div class="background-decor">
+    <img src="./public/icon/planta.svg" class="svg-leaf" style="top: 15%; left: 5%; width: 160px;">
+    <img src="./public/icon/planta.svg" class="svg-leaf" style="top: 65%; left: 80%; width: 120px;">
+    <img src="./public/icon/planta.svg" class="svg-leaf" style="top: 40%; left: 60%; width: 100px;">
+  </div>
+  <div class="welcome-background-decor">
+      <svg class="svg-abstract" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path
+          d="M50,10 C15,35 15,80 50,90 C85,80 85,35 50,10 Z"
+          fill="rgba(80, 200, 120, 0.08)"
+        />
+      </svg>
+
+      <svg class="svg-wave" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path
+          fill="rgba(99, 198, 133, 0.12)"
+          d="M0,160L60,170C120,180,240,200,360,208C480,216,600,208,720,181.3C840,155,960,101,1080,85.3C1200,69,1320,91,1380,101.3L1440,112L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
+        ></path>
+      </svg>
+    </div>
+      <nav class="welcome-navbar">
+    <div class="nav-left">
+      <img src="./public/icon/planta.svg" alt="Logo Chinampa" class="brand-logo">
+      <span class="brand-title"> Productividad Visual</span>
+    </div>
+    <span class="welcome-text">Chinampa </span>
+    <button class="home-btn" onclick="window.location.href='welcome.html'">
+  <img src="./public/icon/inicio.svg" alt="Inicio" class="home-icon">
+  <span>Inicio</span>
+</button>
+    <div class="nav-right">
+      <div class="dropdown">
+        <button class="dropbtn">
+          <img src="./public/icon/user.svg" alt="Perfil" class="user-icon">
+        </button>
+        <div class="dropdown-content">
+          <h4 class="profile-title">Perfil</h4>
+          <hr>
+          <p id="navUserName">Nombre: —</p>
+          <p id="navUserRole">Rol: —</p>
+          <button id="logoutNav">Cerrar sesión</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="container">
+      <h1>Panel de Análisis Científico</h1>
+
+      <!-- Resumen de proyectos -->
+      <section id="projectSummary" class="card-section">
+        <h2>Resumen de proyectos</h2>
+        <div id="projectCards" class="card-grid"></div>
+      </section>
+
+      <!-- Ranking -->
+      <section id="rankingSection" class="chart-section">
+        <h2>Ranking de agricultores</h2>
+        <canvas id="rankingChart"></canvas>
+      </section>
+
+      <!--  Comparativa de biofertilizantes -->
+      <section id="insightsSection" class="chart-section">
+        <h2>Comparativa de biofertilizantes</h2>
+        <canvas id="biofertilizerChart"></canvas>
+      </section>
+    </main>
+
+    <footer class="footer">
+      © 2025 Chinampa. Ciencia y agricultura trabajando juntas.
+    </footer>
+     <script>
+    // --- Dropdown interactivo del perfil ---
+const dropdownBtn = document.querySelector(".dropbtn");
+const dropdown = document.querySelector(".dropdown");
+
+if (dropdownBtn && dropdown) {
+  // Abre / cierra al hacer clic en el ícono
+  dropdownBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    dropdown.classList.toggle("show");
+  });
+
+  // Permite interactuar dentro sin cerrar
+  const menu = dropdown.querySelector(".dropdown-content");
+  menu.addEventListener("click", (e) => e.stopPropagation());
+
+  // Cierra al hacer clic fuera del menú
+  window.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove("show");
+    }
+  });
+}
+  </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/dashboard-scientist.js"></script>
+  </body>
+</html>

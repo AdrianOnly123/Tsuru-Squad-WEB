@@ -1,0 +1,217 @@
+/* =========================================================
+    REGISTER
+   ========================================================= */
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  color: #1b4332;
+  margin: 0;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* --- FONDO  --- */
+body.eco-veins {
+  background: linear-gradient(180deg, #5f9422 0%, #eafbef 100%);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'><g fill='none' stroke='%233ba55c' stroke-opacity='.13' stroke-width='1.2'><path d='M-20 120 Q 40 70 100 120 T 220 120'/><path d='M-20 80 Q 40 30 100 80 T 220 80'/><path d='M-20 40 Q 40 -10 100 40 T 220 40'/><path d='M-20 0 Q 40 -50 100 0 T 220 0'/></g></svg>");
+  background-size: 340px 340px;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-blend-mode: lighten;
+}
+
+/* --- PLANTAS FLOTANTES --- */
+.background-decor {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.svg-leaf {
+  position: absolute;
+  opacity: 0.5;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.1));
+  animation: floatSlow 3s ease-in-out infinite alternate;
+}
+@keyframes floatSlow {
+  0% { transform: translateY(0px) rotate(0deg) scale(1); }
+  50% { transform: translateY(15px) rotate(3deg) scale(1.03); }
+  100% { transform: translateY(-10px) rotate(-2deg) scale(0.98); }
+}
+
+/* --- LAYOUT  --- */
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  gap: 60px;
+}
+
+.left {
+  flex: 1 1 400px;
+  text-align: center;
+  min-width: 280px;
+}
+
+.right {
+  flex: 1 1 420px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- TEXTO DE BIENVENIDA --- */
+.left .brand h2 {
+  font-size: 2.2rem;
+  color: #2e7d32;
+  margin-bottom: 10px;
+  animation: fadeInDown 1s ease forwards;
+}
+.left .brand p {
+  font-size: 1rem;
+  color: #31572c;
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+/* --- IMAGEN DE BIENVENIDA --- */
+.welcome-img {
+  width: 100%;
+  max-width: 420px;
+  margin-top: 25px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08));
+}
+
+/* --- TARJETA --- */
+.card {
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 16px;
+  padding: 40px 30px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border-top: 5px solid #43a047;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 10;
+}
+header img {
+  display: block;
+  margin: 0 auto 10px;
+}
+header h1 {
+  font-size: 1.6rem;
+  color: #1b4332;
+  text-align: center;
+  margin-bottom: 6px;
+}
+header p {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* --- INPUTS --- */
+.input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  margin-bottom: 14px;
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.95);
+}
+.input:focus {
+  border-color: #43a047;
+  box-shadow: 0 0 0 3px rgba(67, 160, 71, 0.2);
+  outline: none;
+}
+
+/* --- OJO DE CONTRASEÑA --- */
+.pwd-wrap { position: relative; }
+.pwd-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pwd-toggle img {
+  width: 22px;
+  height: 22px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+.pwd-toggle:hover img {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+/* --- BOTÓN PRINCIPAL --- */
+.btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  background: linear-gradient(90deg, #43a047, #388e3c);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.btn:hover { transform: scale(1.03); }
+
+/* --- TEXTO DE AYUDA --- */
+.helper {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+.helper a {
+  color: #2e7d32;
+  text-decoration: none;
+}
+.helper a:hover {
+  text-decoration: underline;
+}
+
+/* --- FOOTER --- */
+.footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  font-size: 0.85rem;
+  color: #2e7d32;
+  background: linear-gradient(180deg, #f7fff8 0%, #e9f7ec 100%);
+  border-top: 2px solid rgba(67, 160, 71, 0.2);
+  box-shadow: 0 -4px 10px rgba(67, 160, 71, 0.05);
+  border-radius: 0 0 16px 16px;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .wrap {
+    flex-direction: column;
+    text-align: center;
+  }
+  .left, .right {
+    min-width: unset;
+    width: 100%;
+  }
+  .card {
+    margin-top: 20px;
+  }
+}
