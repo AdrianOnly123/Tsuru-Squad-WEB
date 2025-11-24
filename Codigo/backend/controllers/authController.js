@@ -15,7 +15,7 @@ exports.register = async (req, res) => {
     await newUser.save();
 
     const token = jwt.sign(
-      { _id: user._id, email: user.email, role: user.role },
+      { _id: newUser._id, email: newUser.email, role: newUser.role },
       process.env.JWT_SECRET,
       { expiresIn: "1h" }
     );
@@ -36,9 +36,10 @@ exports.register = async (req, res) => {
 
 exports.login = async (req, res) => {
   const { email, password } = req.body;
-
+  console.log("Email recibido:", email);
   try {
     const user = await User.findOne({ email });
+    console.log("Usuario encontrado:", user);
     if (!user)
       return res.status(404).json({ message: "Usuario no encontrado" });
 

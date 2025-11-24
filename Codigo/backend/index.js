@@ -10,12 +10,25 @@ const projectRoutes = require("./routes/projects");
 
 dotenv.config();
 
+const allowedOrigins = [
+  "http://127.0.0.1:5500",
+  "http://localhost:5173",
+  "http://localhost:3000",
+  "https://chinampa.app"
+];
 
 const PORT = process.env.PORT || 3000;
 app.use(cors({
-  origin: "http://127.0.0.1:5500",
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("No permitido por CORS"));
+    }
+  },
   credentials: true
 }));
+
 app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use("/api/users", userRoutes);

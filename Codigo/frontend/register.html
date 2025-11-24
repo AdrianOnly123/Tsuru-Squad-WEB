@@ -4,21 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registro</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="public/styles/main.css">
+    <link rel="stylesheet" href="public/styles/pages/register.css">
   </head>
   <body>
+    <div class="background-decor">
+    <img src="./public/icon/planta.svg" class="svg-leaf" style="top: 10%; left: 5%; width: 120px;">
+    <img src="./public/icon/planta.svg" class="svg-leaf" style="bottom: 15%; right: 8%; width: 140px;">
+    <img src="./public/icon/planta.svg" class="svg-leaf" style="top: 40%; right: 50%; width: 100px;">
+  </div>
     <div class="wrap">
       <div class="left">
         <div class="brand">
           <h2>Bienvenido</h2>
           <p>Únete a nuestra comunidad y empieza a explorar.</p>
+        <img src="./public/img/img1.png" alt="Ilustración" class="welcome-img">
         </div>
       </div>
 
       <div class="right">
         <div class="card">
           <header>
-            <div class="logo">R</div>
+            <div class="logo">
+              <img src="./public/icon/planta.svg" alt="Logo Chinampa" style="width: 60px; height: 60px;">
+    
+            </div>
             <div>
               <h1>Crear cuenta</h1>
               <p class="lead">Completa los campos para registrarte</p>
@@ -44,7 +54,7 @@
                 type="button"
                 onclick="togglePassword()"
               >
-                👁️
+                <img src="./public/icon/eye.svg" alt="Mostrar" />
               </button>
             </div>
             <div>
@@ -73,7 +83,7 @@
 
           <footer>
             <span>© 2025</span>
-            <span>Tu Marca</span>
+            <span>Chinampa</span>
           </footer>
         </div>
       </div>

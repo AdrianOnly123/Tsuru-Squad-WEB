@@ -59,6 +59,8 @@ if ('serviceWorker' in navigator) {
     .catch(err => console.error('❌ Error al registrar SW:', err));
 }
 
+console.log("Email enviado:", emailInput.value);
+
 function forgot(e) {
   e.preventDefault();
   alert("Función recuperar contraseña (pendiente).");
