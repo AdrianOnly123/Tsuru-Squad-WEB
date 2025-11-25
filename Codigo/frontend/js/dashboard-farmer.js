@@ -25,7 +25,7 @@ if (!user.id) {
 }
 
 // Obtener proyectos del ejidatario
-fetch("http://localhost:3000/api/projects?owner=${user.id}", {
+fetch(`${API_URL}/projects?owner=${user.id}`, {
   method: "GET",
   headers: {
     Authorization: `Bearer ${token}`,
