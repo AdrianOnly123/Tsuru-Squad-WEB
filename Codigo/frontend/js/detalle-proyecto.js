@@ -1,3 +1,4 @@
+import { API_URL } from "./config.js";
 const params = new URLSearchParams(window.location.search);
 const projectId = params.get("id");
 const user = JSON.parse(localStorage.getItem("user"));
