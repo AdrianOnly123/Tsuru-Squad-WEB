@@ -1,3 +1,4 @@
+import { API_URL } from "./config.js";
 // Mostrar / ocultar contraseña
 
 function togglePassword() {
