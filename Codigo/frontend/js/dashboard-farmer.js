@@ -1,3 +1,4 @@
+import { API_URL } from "./config.js";
 const token = localStorage.getItem("token");
 const user = JSON.parse(localStorage.getItem("user"));
 
