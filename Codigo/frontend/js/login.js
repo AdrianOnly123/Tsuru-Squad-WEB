@@ -29,31 +29,30 @@ document
       return;
     }
 
-    fetch(`${API_URL}/auth/login`, {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({ email, password })
-});
-  .then(async (response) => {
-    const data = await response.json();
-    console.log("Respuesta del login:", data);
-
-    if (response.ok) {
-      alert("✅ Bienvenido, " + data.user.name);
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("user", JSON.stringify(data.user));
-      window.location.href = "./welcome.html";
-    } else {
-      alert("❌ " + (data.message || "Error al iniciar sesión"));
-    }
-  })
-  .catch((error) => {
-    alert("⚠️ Error al conectar con el servidor.");
-    console.error("Error en login:", error);
+try {
+  const response = await fetch(`${API_URL}/auth/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ email, password })
   });
-});
+
+  const data = await response.json();
+  console.log("Respuesta del login:", data);
+
+  if (response.ok) {
+    alert("✅ Bienvenido, " + data.user.name);
+    localStorage.setItem("token", data.token);
+    localStorage.setItem("user", JSON.stringify(data.user));
+    window.location.href = "./welcome.html";
+  } else {
+    alert("❌ " + (data.message || "Error al iniciar sesión"));
+  }
+} catch (error) {
+  alert("⚠️ Error al conectar con el servidor.");
+  console.error("Error en login:", error);
+}
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js')
     .then(reg => console.log('✅ Service Worker registrado:', reg.scope))
