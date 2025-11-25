@@ -85,28 +85,32 @@
 
   <script src="./js/welcome.js"></script>
   <script>
-    // --- Dropdown interactivo del perfil ---
-const dropdownBtn = document.querySelector(".dropbtn");
-const dropdown = document.querySelector(".dropdown");
+  // --- Dropdown interactivo del perfil ---
+  document.addEventListener("DOMContentLoaded", () => {
+    const dropdownBtn = document.querySelector(".dropbtn");
+    const dropdown = document.querySelector(".dropdown");
 
-if (dropdownBtn && dropdown) {
-  // Abre / cierra al hacer clic en el ícono
-  dropdownBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    dropdown.classList.toggle("show");
-  });
+    if (dropdownBtn && dropdown) {
+      // Abre / cierra al hacer clic en el ícono
+      dropdownBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        dropdown.classList.toggle("show");
+      });
 
-  // Permite interactuar dentro sin cerrar
-  const menu = dropdown.querySelector(".dropdown-content");
-  menu.addEventListener("click", (e) => e.stopPropagation());
+      // Permite interactuar dentro sin cerrar
+      const menu = dropdown.querySelector(".dropdown-content");
+      if (menu) {
+        menu.addEventListener("click", (e) => e.stopPropagation());
+      }
 
-  // Cierra al hacer clic fuera del menú
-  window.addEventListener("click", (e) => {
-    if (!dropdown.contains(e.target)) {
-      dropdown.classList.remove("show");
+      // Cierra al hacer clic fuera del menú
+      window.addEventListener("click", (e) => {
+        if (!dropdown.contains(e.target)) {
+          dropdown.classList.remove("show");
+        }
+      });
     }
   });
-}
-  </script>
+</script>
 </body>
 </html>
