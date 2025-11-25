@@ -1,19 +1,16 @@
 import { API_URL } from "./config.js";
 
-
-
-const user = JSON.parse(localStorage.getItem("user"));
-const token = localStorage.getItem("token");
-
 document.addEventListener("DOMContentLoaded", () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const token = localStorage.getItem("token");
 
-  if (!token) {
+  if (!token || !user) {
     alert("⚠️ No has iniciado sesión.");
     window.location.href = "./index.html";
     return;
   }
+
+  // Verificar usuario en backend
   fetch(`${API_URL}/users/me`, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -21,14 +18,17 @@ document.addEventListener("DOMContentLoaded", () => {
   })
     .then((res) => res.json())
     .then((data) => {
-      // Mostrar nombre, rol, etc.
+      console.log("Usuario validado:", data);
+      // Aquí podrías actualizar datos dinámicos si lo deseas
+    })
+    .catch((err) => {
+      console.error("Error al validar usuario:", err);
+      alert("⚠️ Sesión inválida, inicia de nuevo.");
+      localStorage.clear();
+      window.location.href = "./index.html";
     });
-  if (!user || !token) {
-    alert("⚠️ No has iniciado sesión.");
-    window.location.href = "./index.html";
-    return;
-  }
 
+  // Mostrar nombre en pantalla
   document.getElementById("userName").textContent = user.name;
 
   const roleMessage = document.getElementById("roleMessage");
@@ -43,20 +43,18 @@ document.addEventListener("DOMContentLoaded", () => {
     roleMessage.textContent =
       "Como científico, tendrás acceso a estudios, muestreo de datos y herramientas para mejorar biofertilizantes y semillas resilientes.";
     dashboardBtn.onclick = () =>
-      (window.location.href = "/dashboard-scienist.html");
+      (window.location.href = "./dashboard-scientist.html"); // ✅ corregido
   } else {
     roleMessage.textContent = "Rol no reconocido. Contacta al administrador.";
     dashboardBtn.disabled = true;
   }
 
+  // Actualizar barra de navegación
+  document.getElementById("navUserName").textContent = `Nombre: ${user.name}`;
+  document.getElementById("navUserRole").textContent = `Rol: ${user.role}`;
+
+  document.getElementById("logoutNav").onclick = () => {
+    localStorage.clear();
+    window.location.href = "./index.html";
+  };
 });
-
-// Actualizar barra de navegación
-
-document.getElementById("navUserName").textContent = `Nombre: ${user.name}`;
-document.getElementById("navUserRole").textContent = `Rol: ${user.role}`;
-
-document.getElementById("logoutNav").onclick = () => {
-  localStorage.clear();
-  window.location.href = "./index.html";
-};
