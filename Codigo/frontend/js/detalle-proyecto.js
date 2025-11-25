@@ -13,7 +13,7 @@ if (!token || !projectId) {
 }
 
 // Obtener datos del proyecto
-fetch(`http://localhost:3000/api/projects/${projectId}`, {
+fetch(`${API_URL}/projects/${projectId}`, {
   headers: {
     Authorization: `Bearer ${token}`,
   },
