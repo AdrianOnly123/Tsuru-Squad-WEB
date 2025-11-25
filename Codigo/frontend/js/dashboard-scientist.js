@@ -1,3 +1,4 @@
+import { API_URL } from "./config.js";
 console.log("Dashboard científico cargado");
 document.addEventListener("DOMContentLoaded", () => {
   const user = JSON.parse(localStorage.getItem("user"));
