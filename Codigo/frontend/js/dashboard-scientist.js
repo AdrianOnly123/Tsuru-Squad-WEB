@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "./index.html";
     return;
   }
-  fetch("http://localhost:3000/api/projects/all", {
+  fetch(`${API_URL}/projects/all`, {
     headers: { Authorization: `Bearer ${token}` },
   })
     .then((res) => res.json())
